@@ -23,8 +23,16 @@ extension BMPlayer {
         if seconds.isNaN {
             return "00:00"
         }
-        let min = Int(seconds / 60)
+        
+        let hours = Int(seconds) / 3600
+        let min = Int(seconds) / 60 % 60
         let sec = Int(seconds.truncatingRemainder(dividingBy: 60))
-        return String(format: "%02d:%02d", min, sec)
+        
+        if seconds < 3600 {
+            return String(format: "%02d:%02d", min, sec)
+        } else {
+            return String(format: "%02d:%02d:%02d", hours, min, sec)
+            
+        }
     }
 }
