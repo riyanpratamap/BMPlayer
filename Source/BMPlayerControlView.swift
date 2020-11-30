@@ -682,7 +682,7 @@ open class BMPlayerControlView: UIView {
         currentTimeLabel.snp.makeConstraints { (make) in
             make.left.equalTo(playButton.snp.right)
             make.centerY.equalTo(playButton)
-            make.width.equalTo(50)
+            make.width.equalTo(60)
         }
         
         timeSlider.snp.makeConstraints { (make) in
@@ -699,7 +699,7 @@ open class BMPlayerControlView: UIView {
         totalTimeLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(currentTimeLabel)
             make.left.equalTo(timeSlider.snp.right).offset(5)
-            make.width.equalTo(50)
+            make.width.equalTo(60)
         }
         
         fullscreenButton.snp.makeConstraints { (make) in
