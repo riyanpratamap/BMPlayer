@@ -65,7 +65,7 @@ open class BMPlayerLayerView: UIView {
     }
     
     /// 播放属性
-    open lazy var player: AVPlayer? = {
+    open lazy var player: AVQueuePlayer? = {
         if let item = self.playerItem {
             let player = AVPlayer(playerItem: item)
             return player

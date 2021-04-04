@@ -59,7 +59,7 @@ open class BMPlayer: UIView {
     //Closure fired when play state chaged
     open var playStateDidChange:((Bool) -> Void)?
     
-    open var avPlayer: AVPlayer? {
+    open var avPlayer: AVQueuePlayer? {
         return playerLayer?.player
     }
     
