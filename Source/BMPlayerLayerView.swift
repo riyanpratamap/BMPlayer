@@ -67,7 +67,7 @@ open class BMPlayerLayerView: UIView {
     /// 播放属性
     open lazy var player: AVQueuePlayer? = {
         if let item = self.playerItem {
-            let player = AVPlayer(playerItem: item)
+            let player = AVQueuePlayer(playerItem: item)
             return player
         }
         return nil
@@ -276,7 +276,7 @@ open class BMPlayerLayerView: UIView {
     fileprivate func configPlayer(){
         player?.removeObserver(self, forKeyPath: "rate")
         playerItem = AVPlayerItem(asset: urlAsset!)
-        player     = AVPlayer(playerItem: playerItem!)
+        player     = AVQueuePlayer(playerItem: playerItem!)
         player!.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
         
         playerLayer?.removeFromSuperlayer()
