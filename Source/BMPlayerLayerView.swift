@@ -67,7 +67,8 @@ open class BMPlayerLayerView: UIView {
     /// 播放属性
     open lazy var player: AVQueuePlayer? = {
         if let item = self.playerItem {
-            let player = AVQueuePlayer(playerItem: item)
+            print("called here case 0")
+            let player = TestPlayer(playerItem: item)
             return player
         }
         return nil
@@ -457,3 +458,18 @@ open class BMPlayerLayerView: UIView {
     }
 }
 
+class TestPlayer: AVQueuePlayer {
+    
+    override func advanceToNextItem() {
+        print("called here case 1")
+        //        super.advanceToNextItem()
+    }
+    
+    override func remove(_ item: AVPlayerItem) {
+        print("called here case 2")
+    }
+    
+    override func removeAllItems() {
+        print("called here case 3")
+    }
+}
