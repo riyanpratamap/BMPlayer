@@ -289,6 +289,23 @@ open class BMPlayerLayerView: UIView {
         layoutIfNeeded()
     }
     
+    open func renewPlayerTest(playerLayeer: AVPlayerLayer, player: AVQueuePlayer, playeritem: AVPlayerItem) {
+        playerLayer?.removeFromSuperlayer()
+        playerLayer = playerLayeer
+        playerLayer?.videoGravity = videoGravity
+        
+        layer.addSublayer(playerLayer!)
+    
+        self.player?.removeObserver(self, forKeyPath: "rate")
+        self.player = player
+        self.playerItem = playeritem
+        self.playDidEnd = false
+        self.player?.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
+        
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
+    
     func setupTimer() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playerTimerAction), userInfo: nil, repeats: true)
